@@ -1,0 +1,2 @@
+# Deployment-bash-script
+2 Apache Web Server(Httpd), 1 HAProxy(LB)'nin olduğu bir senaryoda, aynı içerikteki statik web sayfalarında oluşacak değişikliğin "sha1sum" ile bir "cronjob" yardımıyla dakikada bir kontrol edilir. Eğer herhangi bir değişiklik bulunursa, node'lar LB arkasından sırasıyla çıkarılır, "rsync" ile değişiklik o node'a aktarılır, restart/reload edilirek tekrar devreya alınır sonrasında diğer node'a geçilerek işlem tekrarlanır. Tüm bu işlemler sırasında "timestamp ve PID leride" verilerek işlemlere ilişkin log bastırılır.
